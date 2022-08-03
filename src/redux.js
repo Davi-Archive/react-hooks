@@ -1,5 +1,4 @@
-import { Provider } from 'react-redux';
-
+/*
 const INCREMENT = 'INCREMENT'; // Defina uma constante para os tipos de ação de incremento
 const DECREMENT = "DECREMENT"; // Defina uma constante para os tipos de ação de decremento
 
@@ -31,4 +30,4 @@ const decAction = () => {
 };
 // Defina a store do Redux aqui, passando para ela os redutores
 
-const store = Redux.createStore(counterReducer);
+const store = Redux.createStore(counterReducer); */
