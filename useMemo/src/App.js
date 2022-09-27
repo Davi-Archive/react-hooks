@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from "react";
+import React, { useState, useMemo, useEffect } from "react";
 function App() {
   const [number, setNumber] = useState(0);
   const [dark, setDark] = useState(false);
@@ -6,10 +6,18 @@ function App() {
   const doubleNumber = useMemo(() => {
     return slowFunction(number);
   }, [number]);
-  const themeStyles = {
-    backgroundColor: dark ? "black" : "white",
-    color: dark ? "white" : "black",
-  };
+  const themeStyles = useMemo(() => {
+    return {
+      backgroundColor: dark ? "black" : "white",
+      color: dark ? "white" : "black",
+    };
+  }, [dark]);
+
+  useEffect(()=>{
+    console.log('Theme Changed')
+  },[themeStyles])
+
+
   return (
     <>
       <div>
@@ -32,6 +40,6 @@ export default App;
 
 function slowFunction(num) {
   console.log("Call Slow Function");
-  for (let i = 0; i <= 1000000000; i++) {}
+  for (let i = 0; i <= 100000000; i++) {}
   return num * 2;
 }
